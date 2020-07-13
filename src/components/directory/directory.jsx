@@ -18,7 +18,7 @@ export class Directory extends Component {
         {
           id: 2,
           title: 'skateboarding',
-          imgURL: 'https://atlasskateboarding.com/wordpress/wp-content/uploads/2017/01/AtlasTruckThunderOrangeSingle.jpg'
+          imgURL: 'https://cdn.shopify.com/s/files/1/1728/9265/products/IndyLightsTitanium0720Silver_1024x1024.jpg?v=1594250303'
         },
         {
           id: 3,
