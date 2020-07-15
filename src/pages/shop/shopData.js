@@ -61,46 +61,46 @@ const SHOP_DATA = [
     items: [
       {
         id: 1,
-        name: 'Magenta Blue',
-        imgURL: 'https://i.imgur.com/7oL8App.jpg',
-        price: 50
-      },
-      {
-        id: 2,
-        name: 'Magenta Green',
-        imgURL: 'https://i.imgur.com/m9d1BEP.jpg',
-        price: 50
-      },
-      {
-        id: 3,
-        name: 'Habitat',
-        imgURL: 'https://i.imgur.com/Aw92HXd.jpg',
-        price: 50
-      },
-      {
-        id: 4,
-        name: 'Alien Blue',
-        imgURL: 'https://i.imgur.com/MXxSmoJ.jpg',
-        price: 50
-      },
-      {
-        id: 5,
-        name: 'Alien Green',
-        imgURL: 'https://i.imgur.com/47dl7Oo.jpg',
-        price: 50
-      },
-      {
-        id: 6,
         name: 'Max Allure Jonate',
         imgURL: 'https://i.imgur.com/YqxisfQ.jpg',
         price: 50
       },
       {
-        id: 7,
+        id: 2,
         name: 'Max Allure Dre',
         imgURL: 'https://i.imgur.com/xBpl9Fi.jpg',
         price: 50
       },
+      {
+        id: 3,
+        name: 'Magenta Blue',
+        imgURL: 'https://i.imgur.com/7oL8App.jpg',
+        price: 50
+      },
+      {
+        id: 4,
+        name: 'Magenta Green',
+        imgURL: 'https://i.imgur.com/m9d1BEP.jpg',
+        price: 50
+      },
+      {
+        id: 5,
+        name: 'Habitat',
+        imgURL: 'https://i.imgur.com/Aw92HXd.jpg',
+        price: 50
+      },
+      {
+        id: 6,
+        name: 'Alien Blue',
+        imgURL: 'https://i.imgur.com/MXxSmoJ.jpg',
+        price: 50
+      },
+      {
+        id: 7,
+        name: 'Alien Green',
+        imgURL: 'https://i.imgur.com/47dl7Oo.jpg',
+        price: 50
+      }
     ]
   },
   {
@@ -248,19 +248,19 @@ const SHOP_DATA = [
 
 export default SHOP_DATA;
 
-{
-  id: ,
-  name: '',
-  imgURL: '',
-  price: 
-},
+// {
+//   id: ,
+//   name: '',
+//   imgURL: '',
+//   price: 
+// },
 
-{
-  id: ,
-  title: '',
-  routeName: '',
-  items: [
+// {
+//   id: ,
+//   title: '',
+//   routeName: '',
+//   items: [
 
-  ]
-},
+//   ]
+// },
 
