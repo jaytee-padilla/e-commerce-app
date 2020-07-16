@@ -5,12 +5,19 @@
   height: 350px;
   align-items: center;
 
-  .image {
+  .image-container {
     width: 100%;
-    height: 95%;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 5px;
+    height: 350px;
+
+    .image {
+      width: 100%;
+      height: 95%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #f2f2f2;
+      margin-bottom: 5px;
+    }
   }
 
   .collection-footer {

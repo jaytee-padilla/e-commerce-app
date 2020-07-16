@@ -4,8 +4,16 @@ import './menu-item.scss';
 
 const MenuItem = ({ title, imgURL, size, history, linkURL, match }) => {
   return (
-    <div className={`${size} menu-item`} onClick={() => history.push(`${match.url}${linkURL}`)}>
-      <div style={{backgroundImage: `url(${imgURL})`}} className={`${size} background-img`} />
+    <div
+      className={`${size} menu-item`}
+      onClick={() => history.push(`${match.url}${linkURL}`)}
+    >
+      <div className='image-container'>
+        <div
+          style={{backgroundImage: `url(${imgURL})`}}
+          className={`${size} background-img`}
+        />
+      </div>
 
       <div className='content'>
         <h1 className='title'>{title.toUpperCase()}</h1>

@@ -5,12 +5,12 @@ import './collection-item.scss';
 function CollectionItem({id, name, imgURL, price}) {
   return (
     <div className='collection-item'>
-      {/* <div className='image-container'> */}
+      <div className='image-container'>
         <div
           className='image'
           style={{backgroundImage: `url(${imgURL})`}}
         />
-      {/* </div> */}
+      </div>
 
       <div className='collection-footer'>
         <span className='name'>{name}</span>
