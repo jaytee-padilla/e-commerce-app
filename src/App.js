@@ -25,10 +25,22 @@ class App extends Component {
     // when a user signs in, the onAuthStateChanged method records info about the user logging in or out
     // that "user" data is then being stored in the App components state for authentication use throughout the app
     // by using this method inside of a componentDidMount() function at the App component level, the sign-in status of the current user is consistently tracked during app usage
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
-      createUserProfileDocument(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
 
-      // console.log(user)
+        userRef.onSnapshot(snapshot => {
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              ...snapshot.data()
+            }
+          })
+        });
+      }
+
+      // if userAuth is null, then set currentUser's value to null
+      this.setState({currentUser: userAuth});
     });
   }
 
