@@ -68,7 +68,7 @@ class SignIn extends Component {
             </CustomButton>
 
             {/* isGoogleSignIn automatically passes a value of 'true' if nothing is assigned to it (the boolean is needed for button styling purposes) */}
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn>
               Sign In With Google
             </CustomButton>
           </div>
