@@ -2,5 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Technologies Used:
 
-Node-Sass  
-Firebase  
+- React
+- React Router
+- Redux
+- Node-Sass
+- Firebase
