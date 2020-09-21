@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './App.css';
 
 // components
@@ -8,39 +9,31 @@ import ShopPage from './pages/shop/shop';
 import Header from './components/header/header';
 import SignInAndSignUp from './pages/signin-signup/signin-signup';
 import { auth, createUserProfileDocument } from './firebase/firebase';
+import { setCurrentUser } from './redux/user/user-actions';
 
 class App extends Component {
-  constructor() {
-    super()
-  
-    this.state = {
-      currentUser: null
-    }
-  }
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
     // this listens for authentication state changes on the firebase backend
     // when a user signs in, the onAuthStateChanged method records info about the user logging in or out
-    // that "user" data is then being stored in the App components state for authentication use throughout the app
+    // that "user" data is then being stored in the redux store's state for authentication use throughout the app
     // by using this method inside of a componentDidMount() function at the App component level, the sign-in status of the current user is consistently tracked during app usage
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapshot => {
-          this.setState({
-            currentUser: {
-              id: snapshot.id,
-              ...snapshot.data()
-            }
-          })
+        userRef.onSnapshot((snapshot) => {
+          // whenever the user snapshot updates, the user-reducer value is set with this new object
+          this.props.setCurrentUser({
+            id: snapshot.id,
+            ...snapshot.data(),
+          });
         });
       }
 
-      // if userAuth is null, then set currentUser's value to null
-      this.setState({currentUser: userAuth});
+      // if userAuth is null, then set the redux store's "user" property (inside root-reducer.js) to null
+      this.props.setCurrentUser(userAuth);
     });
   }
 
@@ -50,18 +43,24 @@ class App extends Component {
     this.unsubscribeFromAuth();
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <Header currentUser={this.state.currentUser} />
+        <Header />
         <Switch>
-          <Route exact path='/' component={HomePage} />
-          <Route exact path='/shop' component={ShopPage} />
-          <Route exact path='/signin' component={SignInAndSignUp} />
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/signin" component={SignInAndSignUp} />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+// dispatch will equal the prop name we want to dispatch to the actions
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+// App doesn't need any state from the reducer, therefore the first argument of connect() is null because that's where mapStateToProps would go if App needed state
+export default connect(null, mapDispatchToProps)(App);
