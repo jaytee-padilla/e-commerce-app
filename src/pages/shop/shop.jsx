@@ -6,7 +6,7 @@ import CollectionPreview from '../../components/collection-preview/collection-pr
 
 export class ShopPage extends Component {
   constructor(props) {
-    super(props)
+    super();
   
     this.state = {
       collections: SHOP_DATA
@@ -16,7 +16,7 @@ export class ShopPage extends Component {
 
   render() {
     // destructure
-    const {collections} = this.state;
+    const { collections } = this.state;
 
     return (
       <div className='shop-page'>
