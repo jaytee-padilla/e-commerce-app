@@ -5,6 +5,7 @@ import './header.scss';
 
 // components/assets
 import { ReactComponent as Logo } from '../../assets/crown.svg';
+import CartIcon from '../cart-icon/cart-icon';
 import { auth } from '../../firebase/firebase';
 
 const Header = ({ currentUser }) => {
@@ -29,6 +30,8 @@ const Header = ({ currentUser }) => {
           :
           <Link className='option' to='/signin'>SIGN IN</Link>
         }
+
+        <CartIcon />
       </div>
     </div>
   )
