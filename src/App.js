@@ -72,5 +72,4 @@ const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-// App doesn't need any state from the reducer, therefore the first argument of connect() is null because that's where mapStateToProps would go if App needed state
 export default connect(mapStateToProps, mapDispatchToProps)(App);
